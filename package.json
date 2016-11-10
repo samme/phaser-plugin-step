@@ -1,0 +1,27 @@
+{
+  "name": "phaser-plugin-step",
+  "version": "0.0.0",
+  "description": "Adds keyboard shortcuts for stepping",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "phaser": "^2.6.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samme/phaser-plugin-step.git"
+  },
+  "keywords": [
+    "enableStep",
+    "disableStep"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samme/phaser-plugin-step/issues"
+  },
+  "homepage": "https://github.com/samme/phaser-plugin-step#readme"
+}
