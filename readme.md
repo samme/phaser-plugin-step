@@ -3,7 +3,4 @@
 Phaser Step Plugin 💃
 ==================
 
-Adds keyboard shortcuts:
-
-- <kbd>.</kbd> toggle stepping
-- <kbd>/</kbd> step forward
+Adds keyboard shortcuts: <kbd>.</kbd> toggle stepping <kbd>/</kbd> step forward
