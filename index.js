@@ -27,8 +27,9 @@
     StepPlugin.prototype.init = function() {
       var keyboard;
       keyboard = this.game.input.keyboard;
-      keyboard.addKey(this.keyCode.STEP).onUp.add(this.game.step, this.game);
-      keyboard.addKey(this.keyCode.TOGGLE).onUp.add(this.toggleStep, this);
+      this.keyBindings = [];
+      this.keyBindings.push(keyboard.addKey(this.keyCode.STEP).onUp.add(this.game.step, this.game));
+      this.keyBindings.push(keyboard.addKey(this.keyCode.TOGGLE).onUp.add(this.toggleStep, this));
       this.position = new Phaser.Point(20, 20);
     };
 
@@ -38,6 +39,20 @@
       if (this.game.stepping) {
         text = this.game.pendingStep ? "Step Count: " + this.game.stepCount + " [" + this.keyChar.TOGGLE + "] Exit Step" : "[" + this.keyChar.STEP + "] Step Forward  [" + this.keyChar.TOGGLE + "] Exit Step";
         debug.text(text, this.position.x, this.position.y, debug.color, debug.font);
+      }
+    };
+
+    StepPlugin.prototype.destroy = function() {
+      StepPlugin.__super__.destroy.apply(this, arguments);
+      this.removeKeyBindings();
+    };
+
+    StepPlugin.prototype.removeKeyBindings = function() {
+      var binding, i, len, ref;
+      ref = this.keyBindings;
+      for (i = 0, len = ref.length; i < len; i++) {
+        binding = ref[i];
+        binding.detach();
       }
     };
 

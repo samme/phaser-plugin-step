@@ -14,8 +14,9 @@ Phaser.Plugin.Step = class StepPlugin extends Phaser.Plugin
 
   init: ->
     {keyboard} = @game.input
-    keyboard.addKey(@keyCode.STEP)  .onUp.add @game.step, @game
-    keyboard.addKey(@keyCode.TOGGLE).onUp.add @toggleStep, this
+    @keyBindings = []
+    @keyBindings.push keyboard.addKey(@keyCode.STEP)  .onUp.add @game.step, @game
+    @keyBindings.push keyboard.addKey(@keyCode.TOGGLE).onUp.add @toggleStep, this
     @position = new Phaser.Point 20, 20
     return
 
@@ -27,6 +28,16 @@ Phaser.Plugin.Step = class StepPlugin extends Phaser.Plugin
       else
         "[#{@keyChar.STEP}] Step Forward  [#{@keyChar.TOGGLE}] Exit Step"
       debug.text text, @position.x, @position.y, debug.color, debug.font
+    return
+
+  destroy: ->
+    super
+    @removeKeyBindings()
+    return
+
+  removeKeyBindings: ->
+    for binding in @keyBindings
+      binding.detach()
     return
 
   toggleStep: ->
