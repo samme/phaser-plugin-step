@@ -29,6 +29,6 @@
   "scripts": {
     "start": "coffeebar --watch .",
     "prepublish": "eslint .",
-    "publish": "np --no-cleanup --no-publish"
+    "publish": "np --no-cleanup"
   }
 }
