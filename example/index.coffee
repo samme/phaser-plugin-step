@@ -1,7 +1,11 @@
+"use strict"
+
+{Phaser} = this
+
 leftEmitter = undefined
 rightEmitter = undefined
 
-game = new Phaser.Game
+@GAME = new Phaser.Game
   scaleMode: Phaser.ScaleManager.SHOW_ALL
   state:
     init: ->
@@ -20,13 +24,13 @@ game = new Phaser.Game
     create: ->
       @add.image 0, 0, 'sky'
 
-      leftEmitter = @add.emitter(50, game.world.centerY - 200)
+      leftEmitter = @add.emitter(50, @world.centerY - 200)
       leftEmitter.bounce.setTo 0.5, 0.5
       leftEmitter.setXSpeed 100, 200
       leftEmitter.setYSpeed -50, 50
       leftEmitter.makeParticles 'balls', 0, 250, true, true
 
-      rightEmitter = @add.emitter(game.world.width - 50, game.world.centerY - 200)
+      rightEmitter = @add.emitter(@world.width - 50, @world.centerY - 200)
       rightEmitter.bounce.setTo 0.5, 0.5
       rightEmitter.setXSpeed -100, -200
       rightEmitter.setYSpeed -50, 50
