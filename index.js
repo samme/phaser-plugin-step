@@ -37,8 +37,8 @@
       var debug, text;
       debug = this.game.debug;
       if (this.game.stepping) {
-        text = this.game.pendingStep ? "Step Count: " + this.game.stepCount + " [" + this.keyChar.TOGGLE + "] Exit Step" : "[" + this.keyChar.STEP + "] Step Forward  [" + this.keyChar.TOGGLE + "] Exit Step";
-        debug.text(text, this.position.x, this.position.y, debug.color, debug.font);
+        text = "[" + this.keyChar.STEP + "] Step Forward  [" + this.keyChar.TOGGLE + "] Exit Step  Step Count: " + this.game.stepCount;
+        debug.text(text, this.position.x, this.position.y, null, debug.font);
       }
     };
 
@@ -59,10 +59,11 @@
     StepPlugin.prototype.toggleStep = function() {
       if (this.game.stepping) {
         this.game.disableStep();
+        this.game.debug.reset();
       } else {
         this.game.enableStep();
+        this.render();
       }
-      this.render();
     };
 
     return StepPlugin;

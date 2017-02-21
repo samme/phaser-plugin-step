@@ -23,11 +23,8 @@ Phaser.Plugin.Step = class StepPlugin extends Phaser.Plugin
   render: ->
     {debug} = @game
     if @game.stepping
-      text = if @game.pendingStep
-        "Step Count: #{@game.stepCount} [#{@keyChar.TOGGLE}] Exit Step"
-      else
-        "[#{@keyChar.STEP}] Step Forward  [#{@keyChar.TOGGLE}] Exit Step"
-      debug.text text, @position.x, @position.y, debug.color, debug.font
+      text = "[#{@keyChar.STEP}] Step Forward  [#{@keyChar.TOGGLE}] Exit Step  Step Count: #{@game.stepCount}"
+      debug.text text, @position.x, @position.y, null, debug.font
     return
 
   destroy: ->
@@ -41,6 +38,10 @@ Phaser.Plugin.Step = class StepPlugin extends Phaser.Plugin
     return
 
   toggleStep: ->
-    if @game.stepping then @game.disableStep() else @game.enableStep()
-    @render()
+    if @game.stepping
+      @game.disableStep()
+      @game.debug.reset()
+    else
+      @game.enableStep()
+      @render()
     return
