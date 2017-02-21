@@ -14,31 +14,31 @@
     state: {
       init: function() {
         this.game.plugins.add(Phaser.Plugin.Step);
-        this.game.debug.font = '16px monospace';
+        this.game.debug.font = "16px monospace";
         this.game.debug.lineHeight = 20;
       },
       preload: function() {
-        this.load.baseURL = 'http://examples.phaser.io/assets/';
-        this.load.crossOrigin = 'anonymous';
-        this.load.image('sky', 'skies/cavern2.png');
-        this.load.spritesheet('balls', 'sprites/balls.png', 17, 17);
+        this.load.baseURL = "http://examples.phaser.io/assets/";
+        this.load.crossOrigin = "anonymous";
+        this.load.image("sky", "skies/cavern2.png");
+        this.load.spritesheet("balls", "sprites/balls.png", 17, 17);
       },
       create: function() {
-        this.add.image(0, 0, 'sky');
+        this.add.image(0, 0, "sky");
         leftEmitter = this.add.emitter(50, this.world.centerY - 200);
         leftEmitter.bounce.setTo(0.5, 0.5);
         leftEmitter.setXSpeed(100, 200);
         leftEmitter.setYSpeed(-50, 50);
-        leftEmitter.makeParticles('balls', 0, 250, true, true);
+        leftEmitter.makeParticles("balls", 0, 250, true, true);
         rightEmitter = this.add.emitter(this.world.width - 50, this.world.centerY - 200);
         rightEmitter.bounce.setTo(0.5, 0.5);
         rightEmitter.setXSpeed(-100, -200);
         rightEmitter.setYSpeed(-50, 50);
-        rightEmitter.makeParticles('balls', 1, 250, true, true);
+        rightEmitter.makeParticles("balls", 1, 250, true, true);
         leftEmitter.start(false, 5000, 20);
         rightEmitter.start(false, 5000, 20);
-        this.add.text(20, 560, '[.] Toggle Step', {
-          fill: 'white',
+        this.add.text(20, 560, "[.] Toggle Step", {
+          fill: "white",
           font: this.game.debug.font
         });
       },
