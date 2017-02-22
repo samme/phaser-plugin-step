@@ -28,7 +28,7 @@
   "homepage": "https://github.com/samme/phaser-plugin-step#readme",
   "scripts": {
     "start": "coffeebar --watch .",
-    "prepublish": "eslint .",
+    "preversion": "eslint .",
     "publish": "np --no-cleanup"
   }
 }
