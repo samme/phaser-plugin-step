@@ -1,6 +1,6 @@
 {
   "name": "phaser-plugin-step",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adds keyboard shortcuts for stepping",
   "main": "index.js",
   "directories": {
