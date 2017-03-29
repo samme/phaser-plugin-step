@@ -2,7 +2,7 @@
 
 {Phaser} = this
 
-Phaser.Plugin.Step = class StepPlugin extends Phaser.Plugin
+class Phaser.Plugin.Step extends Phaser.Plugin
 
   keyChar:
     STEP: "/"
