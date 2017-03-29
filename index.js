@@ -47,6 +47,16 @@
       this.removeKeyBindings();
     };
 
+    StepPlugin.prototype.disableStep = function() {
+      this.game.disableStep();
+      this.game.debug.reset();
+    };
+
+    StepPlugin.prototype.enableStep = function() {
+      this.game.enableStep();
+      this.render();
+    };
+
     StepPlugin.prototype.removeKeyBindings = function() {
       var binding, i, len, ref;
       ref = this.keyBindings;
@@ -58,11 +68,9 @@
 
     StepPlugin.prototype.toggleStep = function() {
       if (this.game.stepping) {
-        this.game.disableStep();
-        this.game.debug.reset();
+        this.disableStep();
       } else {
-        this.game.enableStep();
-        this.render();
+        this.enableStep();
       }
     };
 

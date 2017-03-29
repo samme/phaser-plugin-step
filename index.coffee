@@ -32,16 +32,21 @@ Phaser.Plugin.Step = class StepPlugin extends Phaser.Plugin
     @removeKeyBindings()
     return
 
+  disableStep: ->
+    @game.disableStep()
+    @game.debug.reset()
+    return
+
+  enableStep: ->
+    @game.enableStep()
+    @render()
+    return
+
   removeKeyBindings: ->
     for binding in @keyBindings
       binding.detach()
     return
 
   toggleStep: ->
-    if @game.stepping
-      @game.disableStep()
-      @game.debug.reset()
-    else
-      @game.enableStep()
-      @render()
+    if @game.stepping then @disableStep() else @enableStep()
     return
