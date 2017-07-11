@@ -1,6 +1,6 @@
 {
   "name": "phaser-plugin-step",
-  "description": "Adds keyboard shortcuts for stepping",
+  "description": "Adds keyboard shortcuts for frame-stepping",
   "main": "index.js",
   "authors": [
     "samme <samme@github.invalid>"
